@@ -10,10 +10,11 @@ app.listen(3000, () => {
     console.log(`Server is running on port 3000.`);
 });
 
-const postNotification = (req, res) => {
+app.post("/", async function (req, res) {
     console.log(req.body);
 
     const userId = req.body.record.zaloid;
+    console.log(userId);
 
     const postData = {
         "templateId": "00126fd75392bacce383",
@@ -32,12 +33,13 @@ const postNotification = (req, res) => {
             'Content-Type': 'application/json',
             'X-Api-Key': 'Bearer XcxWKgejKbs8SE1NgorRH85suKYjB5L1XNJaHJSRROCzf3LMLW',
             'X-User-Id': userId,
-            'X-MiniApp-Id': 1556607886581928575
+            'X-MiniApp-Id': '1556607886581928575'
         },
         body: JSON.stringify(postData),
     });
+    const response = await fetch('https://api.github.com/users/github');
+    const data = await response.json();
+    console.log(data);
 
     res.send("Hi!");
-};
-
-app.post("/", postNotification);
+});
