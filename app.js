@@ -27,7 +27,7 @@ app.post("/", async function (req, res) {
         }
     };
 
-    fetch('https://openapi.mini.zalo.me/notification/template', {
+    const response = fetch('https://openapi.mini.zalo.me/notification/template', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -37,7 +37,6 @@ app.post("/", async function (req, res) {
         },
         body: JSON.stringify(postData),
     });
-    const response = await fetch('https://api.github.com/users/github');
     const data = await response.json();
     console.log(data);
 
