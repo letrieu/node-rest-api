@@ -10,7 +10,7 @@ app.listen(3000, () => {
 });
 
 const postNotification = (req, res) => {
-    console.log(req);
+    console.log(req.body);
 
     const userId = req.body.record.zaloid;
 
