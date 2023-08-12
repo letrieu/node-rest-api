@@ -39,4 +39,4 @@ const postNotification = (req, res) => {
     res.send("Hi!");
 };
 
-app.get("/", postNotification);
+app.post("/", postNotification);
